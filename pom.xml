@@ -222,20 +222,84 @@ under the License.
 				<version>${flink.version}</version>
 			</dependency>
 
+			<!-- The ODP Kudu build publishes the unshaded jar as the main artifact and the
+				shaded jar (org.apache.kudu.shaded.*) under the "all" classifier. Its pom also
+				lists the bundled libraries as runtime deps, so exclude those to match the
+				upstream shaded kudu-client. -->
 			<dependency>
 				<groupId>org.apache.kudu</groupId>
 				<artifactId>kudu-client</artifactId>
 				<version>${kudu.version}</version>
+				<classifier>all</classifier>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.kudu</groupId>
+						<artifactId>kudu-proto</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.google.protobuf</groupId>
+						<artifactId>protobuf-java</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.google.guava</groupId>
+						<artifactId>guava</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>io.micrometer</groupId>
+						<artifactId>micrometer-core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.sangupta</groupId>
+						<artifactId>murmur</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>io.netty</groupId>
+						<artifactId>netty-all</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>
 				<groupId>org.apache.kudu</groupId>
 				<artifactId>kudu-test-utils</artifactId>
 				<version>${kudu.version}</version>
+				<classifier>all</classifier>
 				<exclusions>
 					<exclusion>
 						<groupId>junit</groupId>
 						<artifactId>junit</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.kudu</groupId>
+						<artifactId>kudu-client</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.kudu</groupId>
+						<artifactId>kudu-proto</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>commons-io</groupId>
+						<artifactId>commons-io</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.google.guava</groupId>
+						<artifactId>guava</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.httpcomponents</groupId>
+						<artifactId>httpclient</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.httpcomponents</groupId>
+						<artifactId>httpmime</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.google.gradle</groupId>
+						<artifactId>osdetector-gradle-plugin</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.google.protobuf</groupId>
+						<artifactId>protobuf-java</artifactId>
 					</exclusion>
 				</exclusions>
 			</dependency>

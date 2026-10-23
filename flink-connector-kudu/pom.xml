@@ -73,6 +73,21 @@ under the License.
 		<dependency>
 			<groupId>org.apache.kudu</groupId>
 			<artifactId>kudu-client</artifactId>
+			<classifier>all</classifier>
+		</dependency>
+
+		<!-- Declared directly because the ODP kudu-client pom pulls these in at runtime scope,
+			which would otherwise override the provided scope inherited from Flink. -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -104,6 +119,7 @@ under the License.
 		<dependency>
 			<groupId>org.apache.kudu</groupId>
 			<artifactId>kudu-test-utils</artifactId>
+			<classifier>all</classifier>
 			<scope>test</scope>
 		</dependency>
 
