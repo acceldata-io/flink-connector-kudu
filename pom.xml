@@ -30,7 +30,7 @@ under the License.
 	</parent>
 
 	<artifactId>flink-connector-kudu-parent</artifactId>
-	<version>2.0.0.3.3.6.6-SNAPSHOT</version>
+	<version>2.0.0.3.3.6.5-SNAPSHOT</version>
 
 	<name>Flink : Connectors : Kudu Parent</name>
 	<packaging>pom</packaging>
@@ -79,7 +79,7 @@ under the License.
 	</distributionManagement>
 
 	<properties>
-		<odp.release.version>3.3.6.6-SNAPSHOT</odp.release.version>
+		<odp.release.version>3.3.6.5-SNAPSHOT</odp.release.version>
 		<flink.version>1.19.1.${odp.release.version}</flink.version>
 		<kudu.version>1.17.0.${odp.release.version}</kudu.version>
 		<scala.binary.version>2.12</scala.binary.version>
